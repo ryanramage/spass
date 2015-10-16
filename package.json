@@ -1,0 +1,28 @@
+{
+  "name": "spass",
+  "version": "1.0.0",
+  "description": "Session based commandline supergenpass",
+  "bin": "cli.js",
+  "dependencies": {
+    "argparse": "^1.0.2",
+    "async": "^1.4.2",
+    "on-wakeup": "^1.0.0",
+    "pw": "0.0.4",
+    "supergenpass": "^1.0.1",
+    "to-clipboard": "^0.2.0"
+  },
+  "devDependencies": {
+    "standard": "^4.5.4"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanramage/spass.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanramage/spass/issues"
+  },
+  "homepage": "https://github.com/ryanramage/spass"
+}
