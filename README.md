@@ -1,6 +1,6 @@
 # spass
 
-Session based commandline supergenpass
+Session based commandline [supergenpass](http://www.supergenpass.com/)
 
 What does that mean? You enter your masterpassword once, then leave the terminal open. You can keep entering urls.
 
