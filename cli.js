@@ -62,12 +62,9 @@ pw('', function (password) {
         removeSubdomains: !args.keepSubdomains,
         secret: args.secret
       }, function (generatedPassword) {
-        toClipboard(generatedPassword, function (err) {
-          if (err) process.exit(1)
-          console.log('✓ password copied to clipboard\n')
-
-          setTimeout(done, 1000)
-        })
+        toClipboard.sync(generatedPassword)
+        console.log('✓ password copied to clipboard\n')
+        setTimeout(done, 1000)
       })
     })
   }
