@@ -6,7 +6,7 @@ var async = require('async')
 var argparse = require('argparse')
 var onWakeup = require('on-wakeup')
 
-var toClipboard = require('to-clipboard')
+var toClipboard = require('to-clipboard-android')
 var supergenpass = require('supergenpass')
 
 var cfg = require('./package.json')
@@ -73,7 +73,6 @@ pw('', function (password) {
   }
 
   async.forever(processor)
-
 })
 
 function geturl (rl, cb) {
