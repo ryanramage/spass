@@ -5,7 +5,8 @@ var pw = require('pw')
 var async = require('async')
 var argparse = require('argparse')
 var onWakeup = require('on-wakeup')
-
+var baseEmoji = require('base-emoji')
+var crypto = require('crypto')
 var toClipboard = require('to-clipboard-android')
 var supergenpass = require('supergenpass')
 
@@ -40,7 +41,7 @@ parser.addArgument(['--secret'], {
 var args = parser.parseArgs()
 
 onWakeup(function () {
-  console.log('Device sleep detected, exiting!')
+  console.log('\nDevice sleep detected, exiting!')
   process.exit(0)
 })
 
@@ -48,6 +49,17 @@ process.stderr.write('Master password: ')
 
 pw('', function (password) {
   if (!password.length) process.exit(1)
+
+  // print out 5 emoji from a md5 hash
+  var buf = new Buffer(password, 'utf8')
+  var bits = crypto.createHash('md5').update(buf).digest('hex')
+  var parts = []
+  for (var i = 0; i < 5; i++) {
+    var bit = bits.slice(i, i + 1)
+    var pic = baseEmoji.toUnicode(new Buffer(bit, 'utf8'))
+    parts.push(pic)
+  }
+  console.log('emoji confirmation: ' + parts.join('  '))
 
   var rl = readline.createInterface({
     input: process.stdin,
